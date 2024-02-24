@@ -10,13 +10,14 @@ import ShowMealDetails from "./Component/Food/ShowMealDetails";
 import Context from "./Component/dataStore/Context";
 // import LikedRecipe from "./Component/LikedRecipe/LikedRecipe";
 import LikedRecipeComp from "./Component/LikedRecipe/LikedRecipe";
+import Error from "./Component/ErrorComponent/Error";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
-      errorElement:<h1>You Got An error</h1>,
+      errorElement: <Error />,
       children: [
         {
           path: "/",

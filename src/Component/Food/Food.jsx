@@ -14,6 +14,7 @@ const Restaurants = () => {
   if (foodArray.length == 0) {
     return <FoodShimmer />;
   }
+  console.log(searchRecipe);
 
   return (
     <>
@@ -37,7 +38,7 @@ const Restaurants = () => {
         </div>{" "}
         <div className="w-full">
           <h1 className="text-3xl max-w-[1280px] mx-auto font-bold py-2">
-            Categories
+            {!searchRecipe ? "Categories" : "Search Result"}
           </h1>
 
           <div className="flex flex-wrap gap-6 max-w-[1280px] mx-auto">

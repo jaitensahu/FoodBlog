@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import Error from "../ErrorComponent/Error";
 
 const ShowMealDetails = () => {
   let [meal, setmeal] = useState();
@@ -12,17 +13,25 @@ const ShowMealDetails = () => {
   }, [param.id]);
   async function getMealDetailById(mealID) {
     // console.log(mealID.data);
-    let response = await axios.get(
-      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`
-    );
-    console.log(response.data.meals[0]);
-    setmeal(response.data.meals[0]);
+    try {
+      let response = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`
+      );
+      console.log(response.data.meals[0]);
+      setmeal(response.data.meals[0]);
+    } catch (error) {
+      setmeal(1);
+      console.error(error);
+      // return <Error message={error} />;
+    }
   }
   const tempArr = Array.from({ length: 20 }, () => null);
   console.log(tempArr[0]);
   console.log(meal);
   if (!meal) {
-    return <h1>Please wait...</h1>
+    return <h1>Please wait...</h1>;
+  } else if (meal == 1) {
+    return <Error message={ "Invalid Route"} />;
   }
   return (
     <div className="mealDetails mt-[70px] w-[100%] mx-auto bg-orange-200">

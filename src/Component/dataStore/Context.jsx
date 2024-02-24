@@ -13,19 +13,18 @@ const Context = ({ children }) => {
       : JSON.parse(localStorage.getItem("liked"))
   );
 
- 
   // function to search recipe on user input
   async function getUserQuery(e) {
     // if (e.key == "Enter") {
-      try {
-        let res = await axios.get(
-          `https://www.themealdb.com/api/json/v1/1/search.php?s=${e.target.value}`
-        );
+    try {
+      let res = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${e.target.value}`
+      );
 
-        // setFoodArray(res.data.meals);
-        setSearchRecipe(res.data.meals);
-      } catch (error) {}
-     if (e.target.value == "") {
+      // setFoodArray(res.data.meals);
+      setSearchRecipe(res.data.meals);
+    } catch (error) {}
+    if (e.target.value == "") {
       getDataFromApi();
       setSearchRecipe();
     }
