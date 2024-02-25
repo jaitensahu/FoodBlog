@@ -41,7 +41,7 @@ const Restaurants = () => {
             {!searchRecipe ? "Categories" : "Search Result"}
           </h1>
 
-          <div className="flex flex-wrap gap-6 max-w-[1280px] mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 max-w-[1280px] mx-auto">
             {searchRecipe ? (
               <ShowSearchedFood />
             ) : (

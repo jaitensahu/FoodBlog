@@ -7,9 +7,13 @@ const LikedRecipeComp = () => {
   console.log(likedRecipe.length);
   return (
     <div className="mt-[100px]">
-          {likedRecipe.length == 0?
-              <h1>You Haven't Liked Anything</h1>:< ShowSearchedFood />
-      }
+      {likedRecipe.length == 0 ? (
+        <div className="flex justify-center items-center">
+          <h1 className="text-3xl font-bold">You Haven't Liked Anything...</h1>
+        </div>
+      ) : (
+        <ShowSearchedFood />
+      )}
     </div>
   );
 };

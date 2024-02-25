@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Error from "../ErrorComponent/Error";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import Loader from "./Loader";
 
 const ShowMealDetails = () => {
   let [meal, setmeal] = useState();
@@ -29,12 +31,12 @@ const ShowMealDetails = () => {
   console.log(tempArr[0]);
   console.log(meal);
   if (!meal) {
-    return <h1>Please wait...</h1>;
+    return <Loader />;
   } else if (meal == 1) {
-    return <Error message={ "Invalid Route"} />;
+    return <Error message={"Invalid Route"} />;
   }
   return (
-    <div className="mealDetails mt-[70px] w-[100%] mx-auto bg-orange-200">
+    <div className="mealDetails  w-[100%] mx-auto bg-orange-200">
       <div className="w-[60%] mx-auto flex flex-col items-center">
         <h3 className="text-3xl text-center font-semibold underline py-6">
           {meal.strMeal}

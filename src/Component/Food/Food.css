@@ -10,7 +10,8 @@ body {
 }
 
 .foodCardContainer .image {
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     aspect-ratio: 3/2;
     background-size: contain;
     /* background-color: antiquewhite; */
@@ -156,4 +157,31 @@ body {
     box-shadow: 0 3px 5px 0 white;
     /* transform: translateY(5px) */
     top: 67%;
+}
+
+@media screen and (max-width:700px) {
+    .heroContainer {
+        height: auto;
+    }
+
+    .heading {
+        font-size: 28px !important;
+    }
+}
+
+@media screen and (max-width:630px) {
+    .foodCardContainer .image {
+        max-width: 300px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:530px) {
+    .liked {
+        display: none;
+    }
+
+    .heading {
+        font-size: 20px !important;
+    }
 }
