@@ -36,6 +36,30 @@ Recipe Finder is a React-based web application that allows users to search for r
 
 - **API Integration:** Utilized a recipe API (<a href="https://www.themealdb.com/api.php">Free Meal API</a>) to fetch real-time data for a vast variety of recipes.
 
+## Packages Used
+
+- **animate.css:** Version 4.1.1 - Used for adding CSS animations to enhance the user interface.
+
+- **axios:** Version 1.6.7 - A promise-based HTTP client for making API requests within the application.
+
+- **react:** Version 18.2.0 - The core library for building user interfaces with React.
+
+- **react-dom:** Version 18.2.0 - Provides DOM-specific methods used by React.
+
+- **react-headroom:** Version 3.2.1 - A React Component to hide/show your header on scroll.
+
+- **react-icons:** Version 5.0.1 - A set of popular icon libraries for React applications.
+
+- **react-lazy-load-image-component:** Version 1.6.0 - A React component for lazy loading images, optimizing performance.
+
+- **react-loading-skeleton:** Version 3.4.0 - Used for displaying loading skeletons to provide a better user experience during data fetching.
+
+- **react-router-dom:** Version 6.22.1 - Enables navigation and routing in a React application.
+
+- **react-toastify:** [Add version number] - A library for displaying toast notifications in React applications.
+
+
+
 ## Learnings
 
 - **React State Management:** Gained experience in managing state and handling user interactions within a React application.
