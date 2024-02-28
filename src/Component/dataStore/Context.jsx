@@ -2,9 +2,10 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import React from "react";
 export const myContext = createContext({});
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Context = ({ children }) => {
-  console.log("in context");
   const [foodArray, setFoodArray] = useState([]);
   const [searchRecipe, setSearchRecipe] = useState();
   const [likedRecipe, setLikedRecipe] = useState(
@@ -12,6 +13,19 @@ const Context = ({ children }) => {
       ? []
       : JSON.parse(localStorage.getItem("liked"))
   );
+
+  const notify = (Notification) => {
+    if (Notification == "added") {
+      toast("🥰 Added to Your Favourites", {
+        position: "bottom-center",
+      });
+    } else if (Notification == "removed") {
+      toast("😒 Removed From favourites...", {
+        position: "bottom-center",
+        className: "foo-bar",
+      });
+    }
+  };
 
   // function to search recipe on user input
   async function getUserQuery(e) {
@@ -52,10 +66,12 @@ const Context = ({ children }) => {
       updatedArr = likedArr.filter((ele) => {
         return ele.idMeal != id;
       });
+      notify("removed");
     } else {
       updatedArr = [...likedArr, recipe];
+      console.log("calling");
+      notify("added");
     }
-    // console.log(updatedArr);
 
     localStorage.setItem("liked", JSON.stringify(updatedArr));
     setLikedRecipe((prev) => updatedArr);

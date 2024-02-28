@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import "./Food.css";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -12,7 +13,7 @@ const Restaurants = () => {
   let { getUserQuery, foodArray, searchRecipe } = useContext(myContext);
 
   if (foodArray.length == 0) {
-    return <FoodShimmer />;
+    // return <FoodShimmer />;
   }
   console.log(searchRecipe);
 
@@ -22,6 +23,7 @@ const Restaurants = () => {
         <div className="heroContainer">
           <div className="heroImage">
             <LazyLoadImage
+              effect="blur"
               src="https://www.fabhotels.com/blog/wp-content/uploads/2022/07/1400x600-Food-Banner.jpg"
               alt=""
             />
@@ -50,7 +52,11 @@ const Restaurants = () => {
                   <Link to={"/food/" + food.strCategory} key={food.idCategory}>
                     <div className="foodCard" id={food.idCategory}>
                       <div className="image">
-                        <img src={food.strCategoryThumb} alt="" />
+                        <LazyLoadImage
+                          effect="blur"
+                          src={food.strCategoryThumb}
+                          alt=""
+                        />
                       </div>
                       <h6 className="categories">{food.strCategory}</h6>
                     </div>

@@ -1,8 +1,11 @@
 import React, { lazy, useContext, useEffect } from "react";
- import { myContext } from "../dataStore/Context"; 
+import { myContext } from "../dataStore/Context";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
+import { ToastContainer } from "react-toastify";
+import { fadeIn } from "../Transitions/AllTransitions";
+
 const ShowSearchedFood = () => {
   let { searchRecipe, likedRecipe, addToLikedRecipe, setSearchRecipe } =
     useContext(myContext);
@@ -83,6 +86,7 @@ const ShowSearchedFood = () => {
           </div>
         );
       })}
+      <ToastContainer hideProgressBar transition={fadeIn} autoClose={500} />
     </div>
   );
 };

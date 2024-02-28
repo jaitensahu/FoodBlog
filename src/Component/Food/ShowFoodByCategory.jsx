@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ShowFoodShimmer from "./ShowFoodShimmer";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ShowFoodByCategory = () => {
   window.scroll(0, 0);
@@ -32,6 +33,7 @@ const ShowFoodByCategory = () => {
             <div key={Food + idx + "xyhk"}>
               <div className="imagebyCategory">
                 <LazyLoadImage
+                  effect="blur"
                   className="foodIMg"
                   src={Food.strMealThumb}
                   alt=""

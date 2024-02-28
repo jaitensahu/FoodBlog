@@ -159,9 +159,23 @@ body {
     top: 67%;
 }
 
+.detailpageImage .lazy-load-image-background {
+    width: 100% !important;
+}
+
+.heroImage .lazy-load-image-background {
+    /* width: 100% !important; */
+    display: contents !important;
+}
+
+
 @media screen and (max-width:700px) {
     .heroContainer {
         height: auto;
+    }
+
+    .detailpageImage {
+        height: auto !important;
     }
 
     .heading {
