@@ -12,10 +12,10 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const Restaurants = () => {
   let { getUserQuery, foodArray, searchRecipe } = useContext(myContext);
 
-  if (foodArray.length == 0) {
-    // return <FoodShimmer />;
-  }
-  console.log(searchRecipe);
+  // if (foodArray.length == 0) {
+  //   // return <FoodShimmer />;
+  // }
+ 
 
   return (
     <>

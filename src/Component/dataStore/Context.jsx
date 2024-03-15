@@ -4,16 +4,19 @@ import React from "react";
 export const myContext = createContext({});
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Error from "../ErrorComponent/Error";
 
 const Context = ({ children }) => {
   const [foodArray, setFoodArray] = useState([]);
   const [searchRecipe, setSearchRecipe] = useState();
+  // ---------- state to manage Liked recipe gets current liked data from local storage------------------
   const [likedRecipe, setLikedRecipe] = useState(
     !localStorage.getItem("liked")
       ? []
       : JSON.parse(localStorage.getItem("liked"))
   );
 
+  // -------------Toastify method to show notification--------------
   const notify = (Notification) => {
     if (Notification == "added") {
       toast("🥰 Added to Your Favourites", {
@@ -29,15 +32,20 @@ const Context = ({ children }) => {
 
   // function to search recipe on user input
   async function getUserQuery(e) {
-    // if (e.key == "Enter") {
+    console.log(e.target.value);
     try {
       let res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${e.target.value}`
       );
-
-      // setFoodArray(res.data.meals);
+      console.log(res.data.meals);
+      if (!res.data.meals) {
+        setSearchRecipe([]);
+        return 0;
+      }
       setSearchRecipe(res.data.meals);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
     if (e.target.value == "") {
       getDataFromApi();
       setSearchRecipe();

@@ -10,19 +10,23 @@ const ShowFoodByCategory = () => {
   window.scroll(0, 0);
   let [category, setCategory] = useState([]);
   let params = useParams();
-  console.log(params);
+  
+
   useEffect(() => {
     getFoodCategory(params.category);
   }, []);
+  
   let categoryName = "";
+  // --------------function to fetch Data from API------------------
   async function getFoodCategory(category) {
-    console.log(category);
     categoryName = category;
+    console.log();
     let res = await axios.get(
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
     );
     setCategory(res.data.meals);
   }
+  // ------------------------------------------------------------------
 
   return (
     <>

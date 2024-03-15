@@ -17,9 +17,12 @@ const ShowMealDetails = () => {
   let [meal, setmeal] = useState();
   let { addToLikedRecipe, likedRecipe } = useContext(myContext);
   let param = useParams();
+
   useEffect(() => {
     getMealDetailById(param.id);
   }, [param.id]);
+  
+  // Show detail of the meal after fetching data from API ----------------
   async function getMealDetailById(mealID) {
     try {
       let response = await axios.get(
